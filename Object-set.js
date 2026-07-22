@@ -1,19 +1,39 @@
 Object.prototype.set = function (path, value) {
+  const keyList = path.split('.')
   let prop = this;
 
-  for (const key of path.split('.')) {
-    console.log('prop: ', prop);
+  console.log('this: ', this);
 
-    if (
-      prop === null
-      || (typeof prop !== 'object' && typeof prop !== 'function')
-      || !Object.hasOwn(prop, key)
-    ) {
-      prop = Object.create(null);
+
+  for (let i = 0; i < keyList.length; i++) {
+    const key = keyList[i]
+
+    if (prop === null || prop === undefined) {
+      prop = { key: {} }
     }
 
-    prop = value;
+    if (
+      typeof prop !== 'object'
+    ) {
+      prop = {}
+    }
+
+    if (
+      !(Object.hasOwn(prop, key))
+    ) {
+      prop[key] = {}
+    }
+
+    if (i === keyList.length - 1) {
+      prop[key] = value
+    } else {
+      if (!prop[key] || typeof prop[key] !== 'object') {
+        prop[key] = {}
+      }
+      prop = prop[key]
+    }
   }
+  return this
 };
 
 
@@ -21,12 +41,24 @@ const obj1 = {
   a: {
     b: {
       x: 1,
+      y: 2
     },
   },
 };
 
-console.log('test');
+const newObj = obj1.set('a.b.y.w', 'somevalue')
+console.log();
+
+console.log('newObj: ', newObj);
 
 
-console.log(obj1.set('a, b, x, z, w', 'somevalue'));
 
+// if (
+//   prop === null
+//   || (typeof prop !== 'object' && typeof prop !== 'function')
+//   || !Object.hasOwn(prop, key)
+// ) {
+//   // prop[key] = Object.create(null);
+// } else {
+//   prop += prop[key]
+// }
