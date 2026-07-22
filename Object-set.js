@@ -51,6 +51,7 @@ console.log();
 
 console.log('newObj: ', newObj);
 
+// !prop[key] || 
 
 
 // if (
