@@ -1,3 +1,5 @@
+type CurrentNode<T> = LinkedNode<T> | null
+
 class Stack<T> {
     private items: Array<T>;
 
@@ -25,8 +27,8 @@ class Stack<T> {
 
 class LinkedNode<T> {
     private _value: T;
-    public next: LinkedNode<T> | null;
-    public prev: LinkedNode<T> | null;
+    public next: CurrentNode<T>;
+    public prev: CurrentNode<T>;
 
     constructor(value: T) {
         this._value = value;
@@ -41,7 +43,7 @@ class LinkedNode<T> {
 
 
 class LinkedList<T> {
-    head: LinkedNode<T> | null;
+    head: CurrentNode<T>;
 
     constructor() {
         this.head = null
@@ -76,7 +78,7 @@ class LinkedList<T> {
         }
 
         node.next = this.head
-        node.prev = null
+        this.head.prev = node
         this.head = node
 
         return node
@@ -87,24 +89,43 @@ class LinkedList<T> {
             return undefined
         }
 
-        let currentNode = this.head
+        if(this.head.value === value) {
+            const result = this.head
 
-        while(
-            currentNode.next !== null
-            && currentNode.next.value !== value
-
-        ) {
-            currentNode = currentNode.next
-        }
-
-        
-        if(currentNode.next !== null) {
-            const next = currentNode.next.next   
-            currentNode.next = next
-            if (next !== null) {
-                next.prev = currentNode.next
+            if(result.next) {
+                result.next.prev = null
             }
+
+            this.head = result.next
+
+            return result
         }
+
+        let currentNode: CurrentNode<T> = this.head
+
+        while( currentNode !== null) {
+            if(currentNode.value === value) {
+                break
+            }
+            currentNode = currentNode.next 
+        }
+
+        if(!currentNode) {
+            return undefined
+        }
+        
+        const prev = currentNode?.prev
+        const next = currentNode.next
+
+        if(prev) {
+            prev.next = next
+        }
+        
+        if (next) {
+            next.prev = prev
+        }
+
+        return currentNode
     }
 
     size() {
@@ -112,10 +133,10 @@ class LinkedList<T> {
             return 0;
         }
 
-        let currentNode = this.head;
+        let currentNode: CurrentNode<T> = this.head;
         let count = 0
 
-        while(currentNode.next !== null) {
+        while(currentNode !== null) {
             currentNode = currentNode.next;
             count++;
         }
@@ -128,10 +149,10 @@ class LinkedList<T> {
             return []
         }
 
-        let currentNode = this.head;
+        let currentNode: CurrentNode<T> = this.head;
         const arr = [];
 
-        while(currentNode.next !== null) {
+        while(currentNode !== null) {
             arr.push(currentNode.value)
             currentNode = currentNode.next
         }
@@ -144,10 +165,10 @@ class LinkedList<T> {
             return undefined
         }
 
-        let currentNode = this.head;
+        let currentNode: CurrentNode<T> = this.head;
         let currentIndex = 0;
 
-        while(currentNode.next !== null) {
+        while(currentNode !== null) {
             if(index === currentIndex) {
                 return currentNode;
             }
@@ -160,7 +181,6 @@ class LinkedList<T> {
     }
 
     reverse() {
-
         const list = new LinkedList();
 
         if(this.head === null) {
@@ -168,18 +188,15 @@ class LinkedList<T> {
         }
 
         const stack = new Stack<T>();
-        let currentNode = this.head;
+        let currentNode: CurrentNode<T> = this.head;
 
-        while(currentNode.next !== null) {
+        while(currentNode !== null) {
             stack.push(currentNode.value)
             currentNode = currentNode.next
         }
 
         while(!stack.isEmpty()) {
-            const value = stack.pop()
-            if(!value) {
-                list.append(value)
-            }
+            list.append(stack.pop())
         }
 
         return list
@@ -189,21 +206,19 @@ class LinkedList<T> {
         if(this.head === null) {
             return undefined
         }
-
-        
-        let fastNode = this.head
-        let slowNode = this.head
+       
+        let fastNode: CurrentNode<T> = this.head
+        let slowNode: CurrentNode<T> = this.head
 
         while(
-            fastNode.next !== null
-            && fastNode.next.next !== null
-            && slowNode.next !== null
+            fastNode !== null
+            && fastNode.next !== null
         ) {
             fastNode = fastNode.next.next
-            slowNode = slowNode.next
+            slowNode = slowNode?.next ?? null
         }
 
-        return fastNode
+        return slowNode 
     }
 }
 
