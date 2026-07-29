@@ -1,7 +1,7 @@
 type CurrentNode<T> = LinkedNode<T> | null
 
 class Stack<T> {
-    private items: Array<T>;
+    private items: T[];
 
     constructor() {
         this.items = []
@@ -103,10 +103,10 @@ class LinkedList<T> {
 
         let currentNode: CurrentNode<T> = this.head
 
-        while( currentNode !== null) {
-            if(currentNode.value === value) {
-                break
-            }
+        while( 
+            currentNode !== null
+            && currentNode.value === value
+        ) {
             currentNode = currentNode.next 
         }
 
@@ -150,7 +150,7 @@ class LinkedList<T> {
         }
 
         let currentNode: CurrentNode<T> = this.head;
-        const arr = [];
+        const arr: T[] = [];
 
         while(currentNode !== null) {
             arr.push(currentNode.value)
@@ -196,10 +196,52 @@ class LinkedList<T> {
         }
 
         while(!stack.isEmpty()) {
-            list.append(stack.pop())
+            const value = stack.pop()
+            
+            if(value !== undefined) {
+                list.append(value)
+            }
         }
 
         return list
+    }
+
+    reverseFast() {
+        if(this.head === null) {
+            return undefined;
+        }        
+
+        const list = new LinkedList()
+        let nextNode: CurrentNode<T> = this.head
+
+        while(nextNode !== null) {
+            list.prepend(nextNode.value)
+            nextNode = nextNode.next
+        }
+
+        return list
+    }
+
+    reverseInPlace() {
+        if(this.head === null) {
+            return undefined;
+        } 
+
+        let newHead: LinkedNode<T> = this.head
+        let nextNode: CurrentNode<T> = this.head
+
+        while(nextNode !== null) {
+            newHead = nextNode
+            const currentNode = nextNode
+            
+            nextNode = nextNode.next
+
+            const next = currentNode.next
+            currentNode.next = currentNode.prev
+            currentNode.prev = next
+        }
+        
+        this.head = newHead
     }
 
     findMiddle() {
