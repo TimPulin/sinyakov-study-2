@@ -1,0 +1,309 @@
+<style>
+  .container {
+    height: 50vh;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    border: 1px solid red;
+    padding: 10px;
+  }
+
+  .sticky-tbl {
+    width: 100%;
+    border-collapse: collapse;
+    /* Убираем padding-top */
+  }
+
+  .sticky-tbl tr {
+    border: 1px solid black;
+  }
+
+  .sticky-cell {
+    position: sticky;
+    top: 0;
+    /* Убираем фиксированный top */
+    z-index: 2;
+    /* Ниже thead (z-index: 3), но выше обычных td */
+    vertical-align: top;
+    background-color: white;
+    /* Важно для перекрытия контента */
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f2f2f2;
+    z-index: 3;
+    /* Самый высокий приоритет */
+  }
+</style>
+
+<div class="container">
+  <table class="sticky-tbl">
+    <thead>
+      <tr>
+        <th>Колонка 1</th>
+        <th>Колонка 2</th>
+        <th>Колонка 3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sticky-cell">Короткий текст</td>
+        <td>Очень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+
+        </td>
+        <td>Ещё один длинный текст...</td>
+      </tr>
+      <tr>
+        <td class="sticky-cell">Короткий текст 11</td>
+        <td>Очень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+
+        </td>
+        <td>Ещё один длинный текст...</td>
+      </tr>
+      <tr>
+        <td class="sticky-cell">Короткий текст 22</td>
+        <td>Очень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+
+        </td>
+        <td>Ещё один длинный текст...</td>
+      </tr>
+      <tr>
+        <td class="sticky-cell">22333 Короткий текст</td>
+        <td>Очень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+
+        </td>
+        <td>Ещё один длинный текст...</td>
+      </tr>
+      <tr>
+        <td class="sticky-cell">444 Короткий текст</td>
+        <td>Очень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+
+        </td>
+        <td>Ещё один длинный текст...</td>
+      </tr>
+      <tr>
+        <td class="sticky-cell">555 Короткий текст</td>
+        <td>Очень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+
+        </td>
+        <td>Ещё один длинный текст...</td>
+      </tr>
+      <tr>
+        <td class="sticky-cell"> 666Короткий текст</td>
+        <td>Очень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+
+        </td>
+        <td>Ещё один длинный текст...</td>
+      </tr>
+      <tr>
+        <td class="sticky-cell"> 888888 Короткий текст</td>
+        <td>Очень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+
+        </td>
+        <td>Ещё один длинный текст...</td>
+      </tr>
+      <tr>
+        <td class="sticky-cell">99999 Короткий текст</td>
+        <td>Очень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+
+        </td>
+        <td>Ещё один длинный текст...</td>
+      </tr>
+      <tr>
+        <td class="sticky-cell">000000 Короткий текст</td>
+        <td>Очень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+          Очень длинный текст... lupus lupus humanus lupus lupus humanusОчень длинный текст... lupus lupus humanus lupus lupus humanus
+
+
+        </td>
+        <td>Ещё один длинный текст...</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<script>
+  const container = document.getElementById('scrollContainer');
+  const stickyCells = document.querySelectorAll('.sticky-cell');
+  const thead = document.querySelector('thead');
+  const headerHeight = thead ? thead.offsetHeight : 0;
+
+  function updateStickyCells() {
+    const containerRect = container.getBoundingClientRect();
+
+    stickyCells.forEach((cell) => {
+      const row = cell.parentElement;
+      const rowRect = row.getBoundingClientRect();
+
+      // Позиция строки относительно контейнера
+      const cellTopRelativeToContainer = rowRect.top - containerRect.top;
+
+      // Если строка видна и её верхняя часть выше/на уровне заголовка
+      if (cellTopRelativeToContainer < headerHeight &&
+        cellTopRelativeToContainer + rowRect.height > 0) {
+        // Ячейка "прилипает" под заголовком
+        cell.style.top = `${headerHeight}px`;
+      } else if (cellTopRelativeToContainer >= headerHeight) {
+        // Строка ниже заголовка - убираем вертикальное прилипание
+        cell.style.top = '';
+      }
+    });
+  }
+
+  container.addEventListener('scroll', updateStickyCells);
+  updateStickyCells(); // Инициализация
+  window.addEventListener('resize', updateStickyCells);  
+</script>
