@@ -57,7 +57,9 @@ function bracketValidation(str) {
     return stack.isEmpty()
 }
 
-const valid1 = bracketValidation(str1)
-console.log(valid1);
-const valid2 = bracketValidation(str2)
-console.log(valid2);
+for (str of [ '((()))', '(()())', '(())()', '()(())', '()()()' ]) {
+  const valid1 = bracketValidation(str)
+  console.log(valid1);
+}
+
+
